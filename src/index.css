@@ -6,3 +6,32 @@
   --breakpoint-screenSmall : 0px;
 }
 
+@layer components {
+
+  #navbar {
+    @apply h-11 bg-black font-sans text-xs text-white ;
+
+    .nav-content {
+      @apply flex justify-between max-w-5xl items-center mx-auto h-full px-8 
+    }
+
+    .nav-logo {
+      @apply shrink-0 
+    }
+
+    .nav-list {
+      @apply flex-auto px-8 max-[835px]:hidden
+      /* @apply flex-auto px-8 max-screenMedium:hidden */
+    }
+
+    .nav-list ul {
+      @apply flex justify-between items-center
+    }
+    
+    .nav-icons {
+      @apply flex space-x-9 shrink-0
+    }
+
+  }
+
+}

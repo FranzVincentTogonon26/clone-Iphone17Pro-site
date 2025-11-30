@@ -3,7 +3,7 @@
 @theme {
   --breakpoint-screenWXLarge : 1440px;
   --breakpoint-screenWLarge : 1068px;
-  --breakpoint-screenWMedium : 730px;
+  --breakpoint-screenWMedium : 731px;
   --breakpoint-screenWSmall : 0px;
 }
 
@@ -34,9 +34,9 @@
 }
 
 @utility screenWidthSmall {
-    @media (max-width: 729px) { 
+    @media (max-width: 731px) { 
     inset: 0; 
-    background-color: rgba(0, 0, 0, 0.4); 
+    background-color: rgba(0, 0, 0, 0.8); 
     backdrop-filter: blur(8px); 
     height: 120px;
     top: 767px;
@@ -82,7 +82,7 @@
       screenWXLarge:w-[1650px] screenWXLarge:mt-50
       screenWLarge:w-[1415px] screenWLarge:mt-20  
       screenWMedium:w-[1000px] screenWMedium:mt-15 
-      screenWSmall:w-[440px] screenWSmall:mt-10      
+      screenWSmall:w-[420px] screenWSmall:mt-9      
       max-w-none 
       h-auto
     }
@@ -111,6 +111,42 @@
 
   }
 
-  
+  #highlights {
+    @apply  w-full h-[1225px] bg-[#1d1d1f] text-black mx-auto overflow-hidden pt-40 pb-[216px];
+
+    .viewport-content {
+       @apply w-full mx-auto;
+
+       header {
+        @apply flex flex-row justify-between text-white max-w-7xl  mx-auto  pb-[50px];
+
+        h2 {
+          @apply flex justify-center items-center text-center text-[56px] font-[600] font-sans 
+        }
+
+        a {
+          @apply flex text-center justify-center items-center gap-5   
+        }
+      }
+
+    }
+
+    .media-card-gallery-content {
+      @apply h-[680px] flex flex-col flex-1 mx-auto justify-between items-center
+    }
+
+    .media-gallery-wrapper ul {
+      @apply flex flex-row flex-1 gap-4
+    }
+
+    .card {
+      @apply bg-black h-[680px] w-[1281px] rounded-3xl
+    }
+
+
+
+  }
+
+
 
 }

@@ -3,10 +3,10 @@ import { isDesktopHero, isMobilHero } from "../utils"
 
 function Hero() {
 
-    const [heroSrc, setHeroSrc] = useState( window.innerWidth < 730 ? isMobilHero : isDesktopHero );
+    const [heroSrc, setHeroSrc] = useState( window.innerWidth < 731 ? isMobilHero : isDesktopHero );
 
     const handleHeroSrcSet = () => {
-        if(window.innerWidth < 730){
+        if(window.innerWidth < 731){
             setHeroSrc(isMobilHero);
         } else {
             setHeroSrc(isDesktopHero);

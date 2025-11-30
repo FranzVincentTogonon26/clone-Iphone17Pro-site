@@ -1,4 +1,5 @@
 import Hero from "./components/Hero"
+import Highlight from "./components/Highlight"
 import Navbar from "./components/Navbar"
 
 
@@ -8,6 +9,10 @@ function App() {
     <main>
       <Navbar />
       <Hero />
+      <Highlight  />
+      <div className="h-[1225px] bg-white">
+
+      </div>
     </main>
   )
 }

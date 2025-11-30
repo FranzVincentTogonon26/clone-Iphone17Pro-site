@@ -1,10 +1,47 @@
 @import "tailwindcss";
 
 @theme {
-  --breakpoint-screenLarge : 1060px;
-  --breakpoint-screenMedium : 730px;
-  --breakpoint-screenSmall : 0px;
+  --breakpoint-screenWXLarge : 1440px;
+  --breakpoint-screenWLarge : 1068px;
+  --breakpoint-screenWMedium : 730px;
+  --breakpoint-screenWSmall : 0px;
 }
+
+@layer utilities {
+  /* Small screens */
+  @media (max-height: 659px) and (max-width: 729px) { 
+    .screenHeightSmall {
+      width: 420px;
+      margin-top: 35px;
+    }
+  }
+
+  /* Medium screens */
+  @media (max-height: 659px) and (min-width: 730px) and (max-width: 1439px) { 
+    .screenHeightMedium {
+      width: 1000px;
+      margin-top: 40px;
+    }
+  }
+
+  /* Large screens */
+  @media (max-height: 659px) and (min-width: 1440px) { 
+    .screenHeightFull {
+      width: 1350px;
+      margin-top: 40px;
+    }
+  }
+}
+
+@utility screenWidthSmall {
+    @media (max-width: 729px) { 
+    inset: 0; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(8px); 
+    height: 120px;
+    top: 767px;
+    }
+  }
 
 @layer components {
 
@@ -21,7 +58,6 @@
 
     .nav-list {
       @apply flex-auto px-8 max-[835px]:hidden
-      /* @apply flex-auto px-8 max-screenMedium:hidden */
     }
 
     .nav-list ul {
@@ -33,5 +69,48 @@
     }
 
   }
+
+  #hero {
+    @apply w-full h-auto bg-black overflow-hidden;
+
+    .hero-content {
+      @apply flex justify-center items-center
+    }
+
+    .hero-content img {
+      @apply 
+      screenWXLarge:w-[1650px] screenWXLarge:mt-50
+      screenWLarge:w-[1415px] screenWLarge:mt-20  
+      screenWMedium:w-[1000px] screenWMedium:mt-15 
+      screenWSmall:w-[440px] screenWSmall:mt-10      
+      max-w-none 
+      h-auto
+    }
+
+    .hero-footer {
+      @apply 
+      absolute 
+      flex 
+      flex-col 
+      justify-center 
+      items-center 
+      w-full
+      screenWXLarge:-translate-y-40
+      screenWLarge:-translate-y-40
+      screenWMedium:-translate-y-30
+      screenWidthSmall;
+
+      a {
+        @apply text-2xl text-white bg-blue-500 text-[20px] px-5 py-2 rounded-full font-semibold 
+      }
+
+      p {
+        @apply text-[20px] text-white font-sans font-bold mt-2 text-center justify-center
+      }
+    }
+
+  }
+
+  
 
 }

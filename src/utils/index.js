@@ -1,3 +1,5 @@
+import hmv from "/assets/videos/iphone17.mp4";
+
 import apple from "/assets/images/apple.svg";
 import search from "/assets/images/search.svg";
 import cart from "/assets/images/bag.svg";
@@ -21,6 +23,7 @@ import batteryIcon from "/assets/images/batteryIcon.png";
 import AI_icon from "/assets/images/AI_icon.png";
 
 
+export const heroVideo = hmv;
 export const appleLogo = apple;
 export const appleSearch = search;
 export const appleCart = cart;

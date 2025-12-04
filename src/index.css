@@ -3,45 +3,99 @@
 @theme {
   --breakpoint-screenWXLarge : 1440px;
   --breakpoint-screenWLarge : 1068px;
-  --breakpoint-screenWMedium : 731px;
+  --breakpoint-screenWMedium : 732px;
   --breakpoint-screenWSmall : 0px;
 }
 
 @layer utilities {
-  /* Small screens */
-  @media (max-height: 659px) and (max-width: 729px) { 
-    .screenHeightSmall {
+
+  @media (max-width: 732px) { 
+    .screenSmall {
       width: 420px;
-      margin-top: 35px;
+      margin-top: 30px;
     }
   }
 
-  /* Medium screens */
-  @media (max-height: 659px) and (min-width: 730px) and (max-width: 1439px) { 
-    .screenHeightMedium {
-      width: 1000px;
+  @media (min-width: 732px) and (max-width: 1067px) { 
+    .screenMedium {
+      width: 980px;
+      margin-top: 50px;
+      max-width: none;
+      height: auto;
+    }
+  }
+
+  @media (min-width: 1067px) and (max-width: 1441px) and (max-height: 672px) { 
+    .screenWLarge {
+      width: 980px;
+      margin-top: 40px;
+      max-width: none;
+      height: auto;
+    }
+  }
+
+  @media (min-width: 1067px) and (max-width: 1441px) and (min-height: 670px) { 
+    .screenHLarge {
+      max-width: 1420px;
+      max-height: 86.5vh;
       margin-top: 40px;
     }
   }
 
-  /* Large screens */
-  @media (max-height: 659px) and (min-width: 1440px) { 
-    .screenHeightFull {
-      width: 1350px;
+  @media (min-width: 1441px) and (max-height: 872px) { 
+    .screenWXLarge {
+      width: 1330px;
       margin-top: 40px;
+      max-width: none;
+      height: auto;
     }
   }
+
+  @media (min-width: 1441px) and (min-height: 870px) { 
+    .screenHXLarge {
+      max-width: 1680px;
+      max-height: 90vh;
+      margin-top: 40px;
+      transform: translateY(0%);
+
+    }
+  }
+
+  /* @media (min-height: 1100px){
+    .screenScaleLarge {
+      transition: all 0.3s ease-in-out;
+       margin-top: 5vh;
+    }
+  } */
+
 }
 
+
 @utility screenWidthSmall {
-    @media (max-width: 731px) { 
+    @media (max-width: 732px) { 
     inset: 0; 
     background-color: rgba(0, 0, 0, 0.8); 
     backdrop-filter: blur(8px); 
     height: 120px;
-    top: 767px;
+    top: 720px;
     }
+}
+
+@utility screenWidthLarge {
+ 
+  @media (min-width: 732px){
+    transform: translateY(-140%);
   }
+   
+  @media (min-width: 1067px) and (max-width: 1441px) { 
+    transform: translateY(-185%);
+  }
+
+  @media (min-width: 1441px) { 
+    transform: translateY(-215%);
+  }
+
+}
 
 @layer components {
 
@@ -49,11 +103,11 @@
     @apply h-11 bg-black font-sans text-xs text-white ;
 
     .nav-content {
-      @apply flex justify-between max-w-5xl items-center mx-auto h-full px-8 
+      @apply flex justify-between max-w-5xl items-center mx-auto h-full px-8   
     }
 
     .nav-logo {
-      @apply shrink-0 
+      @apply shrink-0
     }
 
     .nav-list {
@@ -71,20 +125,10 @@
   }
 
   #hero {
-    @apply w-full h-auto bg-black overflow-hidden;
+    @apply w-full bg-black overflow-hidden;
 
     .hero-content {
-      @apply flex justify-center items-center
-    }
-
-    .hero-content img {
-      @apply 
-      screenWXLarge:w-[1650px] screenWXLarge:mt-50
-      screenWLarge:w-[1415px] screenWLarge:mt-20  
-      screenWMedium:w-[1000px] screenWMedium:mt-15 
-      screenWSmall:w-[420px] screenWSmall:mt-9      
-      max-w-none 
-      h-auto
+      @apply flex justify-center items-center my-0 bottom-0
     }
 
     .hero-footer {
@@ -95,11 +139,8 @@
       justify-center 
       items-center 
       w-full
-      screenWXLarge:-translate-y-40
-      screenWLarge:-translate-y-40
-      screenWMedium:-translate-y-30
-      screenWidthSmall;
-
+      screenWidthSmall
+      screenWidthLarge;
       a {
         @apply text-2xl text-white bg-blue-500 text-[20px] px-5 py-2 rounded-full font-semibold 
       }
@@ -118,14 +159,14 @@
        @apply w-full mx-auto;
 
        header {
-        @apply flex flex-row justify-between text-white max-w-7xl  mx-auto  pb-[50px];
+        @apply flex flex-row justify-between max-w-7xl  mx-auto  pb-[50px];
 
         h2 {
-          @apply flex justify-center items-center text-center text-[56px] font-[600] font-sans 
+          @apply flex justify-center items-center text-center text-[56px] font-[600] font-sans text-slate-100
         }
 
         a {
-          @apply flex text-center justify-center items-center gap-5   
+          @apply flex text-center justify-center items-center gap-5   text-blue-700 
         }
       }
 
@@ -143,7 +184,27 @@
       @apply bg-black h-[680px] w-[1281px] rounded-3xl
     }
 
+  }
 
+  #camera {
+    @apply  w-full h-[1225px] bg-black text-white mx-auto overflow-hidden pt-40 pb-[216px];
+
+    .viewport-content {
+       @apply w-full mx-auto;
+
+       header {
+        @apply flex flex-col justify-center max-w-7xl  mx-auto  pb-[50px];
+
+        h2 {
+          @apply flex text-center justify-center items-center gap-5   text-[#ff791b] text-[25px] font-semibold
+        }
+
+        p {
+          @apply flex justify-center items-center text-center text-[75px] font-[600] font-sans text-slate-100
+        }
+      }
+
+    }
 
   }
 
